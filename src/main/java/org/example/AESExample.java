@@ -10,13 +10,12 @@ import java.security.Key;
 import java.security.NoSuchAlgorithmException;
 import java.util.Base64;
 
-//www.youtube.com/watch?v=uxyGJMBs2dI&t=28s
 public class AESExample {
     private static final String ALGO = "AES";
-    private byte[] keyValue;
+    private byte[] keyAsBytes;
 
     public AESExample(String key) {
-        this.keyValue = key.getBytes();
+        this.keyAsBytes = key.getBytes();
     }
 
     public String encrypt(String data) throws NoSuchPaddingException, NoSuchAlgorithmException, InvalidKeyException, BadPaddingException, IllegalBlockSizeException {
@@ -38,20 +37,20 @@ public class AESExample {
     }
 
     private Key generateKey() {
-        return new SecretKeySpec(keyValue, ALGO);
+        return new SecretKeySpec(keyAsBytes, ALGO);
     }
 
     public static void main(String[] args) throws Exception {
-        String confidential_data = "AbhinovGogoi";
+        String confidential_data = "This is a confidential message";
         AESExample aes = new AESExample("qwertyuiopasdfgh"); // set 16 digit AES key
 
         // encrypt
-        String encrypted_confidential_data = aes.encrypt(confidential_data);
-        System.out.println("encrypted_confidential_data: "+encrypted_confidential_data);
+        String encrypted = aes.encrypt(confidential_data);
+        System.out.println("encrypted: "+encrypted);
 
         // decrypt
-        String decrypted_confidential_data = aes.decrypt(encrypted_confidential_data);
-        System.out.println("decrypted_confidential_data: "+decrypted_confidential_data);
+        String decrypted = aes.decrypt(encrypted);
+        System.out.println("decrypted: "+decrypted);
     }
 
 }
