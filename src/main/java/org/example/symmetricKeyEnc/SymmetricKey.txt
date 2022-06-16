@@ -1,0 +1,16 @@
+Symmetric key encryption is also called private key encryption
+A single key is used by sender and receiver to encrypt and decrypt the message
+
+Problem arises how to securely share the secret key between them in the first place
+
+Understanding - https://www.youtube.com/playlist?list=PLSNNzog5eyduN6o4e6AKFHekbH5-37BdV
+
+AES vs DES
+
+- DES < AES
+- DES is less secure, do not use
+
+AES Example - //www.youtube.com/watch?v=uxyGJMBs2dI
+DES Example - //www.youtube.com/watch?v=3gUV_1rQqfQ
+
+
